@@ -1,109 +1,49 @@
 # A02
-A way to think about Git and Github.
+ART 1: Directions on using Webstorm, GIT and Github
+Open this link and click on apply now https://www.jetbrains.com/community/education/#students
+Download git from https://git-scm.com/downloads
+Create a github account https://github.com/join
+Click on "official document" and fill in all the required information
+After you get an email verifying your eligibilty for a license, click on the link in the email
+Download Webstorm
+Start Webstorm and click on configure > check for updates
+Press (Ctrl+Alt+S) to display Webstorm settings. Choose version control > Git ten choose the location and click test. This step is to ensure that Webstorm is connected to Git (must have git installed)
+On the main page of Webstorm click on "Create New Project". choose the location and the name
+Create your new project
+Click file > New and create a new file (for example HTML file > HTML 5)
+After you make the needed changes to your file click VCS > import into version control > create Git repository
+Click OK then commit the changes to git. NOTE: if this is your first commit, a dialog box will open, set your git username and email using your .EDU email
+In order to add your project to Github, click VCS > import into version control > share project on Github
+Click share and you will get "Successfully shared project on Github" as a message if it worked.
+If you need to make changes, you can go back on Webstorm and add in your changes then click on VCS > Git > Commit and then add your commit comment and then commit
+In order to push the change on Github click on VCS > Git > Push (Ctrl + Shift + K)
+Your changes will be visible on github now!
+To add a new file on Github, click on repository then create new file and name it. Add your text to the file and commit it
+To choose the Github page location, select "Master branch" and copy the published URL to submit for assignment 2
+Refrences:
+Dr. Arthur Hendela (2020), Additional Instructions on Creating a Git and Github repository.
+Dr Arthur Hendela (2019), Introduction to Github and Webstorm.
+Part 2: Glossary to include these terms in a bulleted list
+-Branch: it is a parallel version of a repository, it is a place where you can freely make changes without affecting the primary or main branch /the "live" version.
 
-Open up a text editor.
+-Clone:it is a copy of the repository that lives on your computer instead of on a website's server. Basically you clone in order to make changes locally on your preferred editor and the use of Git.
 
-Type "Hello World".
+-Commit:A commit, or "revision", is an individual change to a file (or set of files).
 
-Save this file.
+-Fetch:with git fetch, you can add changes from remote repository to local working branch without commiting them. Its a way to review your changes before commiting them.
 
-You have now created a "milestone" on your hard drive of this text.
-You can now retreive that milestone by double clicking it to re-open it in your text editor.
-This should be a concept you already understand quite well.
-Change the contents of that file again. Add in your own text. Save it again.
+-GIT: open source program to track changes in text files.
 
-By saving it again you've overwritten the previous milestone.
-You can certainly redo the work (e.g. replacing all the text with "Hello World" and saving again) but the original work is gone otherwise.
-Git saves milestones of milestones.
+-Github:
 
-  git commit -am "By typing this command I am saving a collection of saved files."
-This is great because now we can roll back to old versions of files without having to retype. Aka "source control".
+-Merge:Merging takes the changes from one branch (in the same repository or from a fork), and applies them into another.
 
-However, wouldn't it be great if we could further save milestones in the cloud?
+-Merge Conflict:Merge conflicts happen when people make different changes to the same line of the same file, or when one person edits a file and another person deletes the same file.
 
-Aka milestones of milestones of milestones.
-Github -> Git -> Save
-Github is two things:
+Push:it means sending your committed changes to the remote repository on github.
 
-git, in the cloud
-a social network around source code
-All you need to do to push to Github:
+-Pull:Pull refers to when you are fetching in changes and merging them.
 
-  git push origin master
-Now one could "clone" that repository on another computer and not just get the latest code but the complete revision history on another computer.
+-Remote:This is the version of a repository or branch that is hosted on a server, most likely GitHub.com.
 
-Setting up
-
-Assuming your project is in a folder named "Project" on your Desktop.
-
-Starting from scratch
-
-cd ~/Desktop/Project
-git init
-git checkout -b develop
-touch README.md
-Open the README.md file you just created in your text editor. Describe your project. I've provided a basic template below for what it's worth. Save it.
-
-Go to Github (or Bitbucket or whereever you want to save your code in the cloud). Create a new project.
-
-If you're on Github, do not check Initialize this project with a README since you just made one.
-Determine your SSH clone url. On Github it's probably something like git@github.com:USERNAME/PROJECT.git. Should be on the project's page somewhere.
-
-Add your remote.
-
-  git remote add origin {{the link you just copied}}
-Breaking that down
-
-git :: The git command
-remote add :: We're adding a remote connection for this repository
-origin :: We're naming the remote "origin". You can also call this "github" or "bananasauraus" if you'd like.
-Cloning an existing repository.
-
-Determine your SSH clone url. On Github it's probably something like git@github.com:USERNAME/PROJECT.git. Should be on the project's page somewhere.
-
-  cd ~/Desktop
-  git clone {{the link you just copied}} Project
-This creates a directory named "Project", clones the repository there and adds a remote named "origin" back to the source.
-
-  cd Project
-  git checkout develop
-If that last command fails
-
-  git checkout -b develop
-Updating/The Development Cycle
-
-You now have a git repository, likely with two branches: master and develop. Now bake these laws into your mind and process:
-
-####You will never commit to master directly. ####You will never commit to develop directly.
-
-Instead, you will create feature branches on your machine that exist for the purpose of solving singular issues. You will always base your features off the develop branch.
-
-	git checkout develop
-	git checkout -b my-feature-branch
-This last command creates a new branch named "my-feature-branch" based off of develop. You can name that branch whatever you like. You should not have to push it to Github unless you intend to work on multiple machines on that feature.
-
-Make changes.
-
-git add .
-git commit -am "I have made some changes."
-This adds any new files to be tracked and makes a commit. Now let's add them to develop.
-
-git checkout develop
-git merge --no-ff my-feature-branch
-git push origin develop
-Releasing
-
-Finished with your project?
-
-Create a feature branch as normal.
-
-Update the version history in the README.md file
-
-Update this to develop as normal.
-
-  git checkout master
-  git merge --no-ff develop
-  git push origin master
-  git tag v1.0.0
-  git push origin v1.0.0
-Replace 1.0.0 in the snippet here with your appropriate versions. Now you have a tag saved.
+-Repository:a project's folder, contains all of the project files and stores each file's revision history.
